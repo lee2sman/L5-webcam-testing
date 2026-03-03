@@ -1,0 +1,22 @@
+I need to compile webcam.so for different platforms! (webcam.so on Linux, webcam.dll on Windows, webcam.dylib on macOS)
+
+how to compile for Linux:
+
+```
+gcc -O2 -shared -fPIC -o webcam.so webcam.c -ljpeg
+```
+
+## compile for windows:
+
+```
+gcc -O2 -shared -o webcam.dll webcam.c -ljpeg.dll
+```
+Will require the user has libjpeg library installed. To make it easier, I could package by placing in same directory. 
+
+## compile for mac:
+
+```
+clang -O2 -dynamiclib -o webcam.dylib webcam.c -ljpeg
+```
+
+Mac users will need libjpeg library. Can be installed `brew install libjpeg`. or include in same directory.
